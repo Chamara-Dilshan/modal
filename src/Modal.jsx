@@ -9,6 +9,8 @@ function Modal({ setOpenModal }) {
     const [baptismCertificate, setBaptismCertificate] = useState(null);
     const [knowsTalents, setKnowsTalents] = useState(null);
     const [talents, setTalents] = useState([{ id: 1, value: '' }]);
+    const [willingToBeBaptized, setWillingToBeBaptized] = useState(null);
+    const [lifeToJesusChrist, setLifeToJesusChrist] = useState(null);
     const [fileTypeError, setFileTypeError] = useState('');
 
     function handleTalentChange(id, event) {
@@ -96,6 +98,56 @@ function Modal({ setOpenModal }) {
                     </div>
                 )}
 
+                {step === 2 && !receivedChrist && (
+                    <div>
+                        <p>2. Are you willing today to give your life to Jesus Christ? </p>
+                        <label>
+                            <input
+                                type="radio"
+                                name="lifeToJesusChrist"
+                                value="yes"
+                                checked={lifeToJesusChrist === 'yes'}
+                                onChange={() => {
+                                    setLifeToJesusChrist('yes');
+                                }}
+                            />
+                            Yes
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="lifeToJesusChrist"
+                                value="no"
+                                checked={lifeToJesusChrist === 'no'}
+                                onChange={() => { 
+                                    setLifeToJesusChrist('no');
+                                }}
+                            />
+                            No
+                        </label>
+
+                        { lifeToJesusChrist === 'yes' && (
+                            <div>
+                                <p>wonderful! Please fill out this form:   <a href="/baptism-form">I Give My Life To Jesus Christ </a>.</p>                                
+                            </div>
+                        )}
+
+                        {lifeToJesusChrist === 'no'  && (
+                            <div>
+                                <p>Thanks! We respect your answer. But we will keep you in our prayers.</p>                                
+                                <button 
+                                    type="button"
+                                    onClick={() => setStep(4)}
+                                >
+                                    Next
+                                </button>
+                            </div>
+                            
+                        )}
+                    </div>
+                )}
+
+
                 {step === 2 && receivedChrist && (
                     <div>
                         <p>2. Did you get baptized by immersion?</p>
@@ -106,7 +158,6 @@ function Modal({ setOpenModal }) {
                                 value="yes"
                                 onChange={() => {
                                     setBaptizedByImmersion(true);
-                                    // setStep(step + 1);
                                 }}
                             />
                         Yes
@@ -148,7 +199,7 @@ function Modal({ setOpenModal }) {
                                 name="willingToBeBaptized"
                                 value="yes"
                                 onChange={() => {
-                                    setStep(step + 1);
+                                    setWillingToBeBaptized(true);
                                 }}
                             />
                             Yes
@@ -164,11 +215,18 @@ function Modal({ setOpenModal }) {
                             />
                             No
                         </label>
+
+                        { willingToBeBaptized && (
+                            <div>
+                                <p>Wonderful! Please fill out the form:  <a href="/baptism-form">I Want To Be Baptized</a>.</p>                                
+                            </div>
+                        )}
                     </div>
                 )}
 
-                                
-                {step === 4 && baptismCertificate && (
+
+                {/* {(step === 4 && baptismCertificate)||step === 4 && (*/}
+                {step === 4 && (
                     <div>
                         <p>3. Do you know your talents and/or spiritual gifts?</p>
                         <label>
@@ -203,6 +261,11 @@ function Modal({ setOpenModal }) {
 
                         { knowsTalents === 'yes'  && (
                             <div>
+                                <div>
+                                    <p>
+                                        please list all your Talents or Gifts.                                         
+                                    </p>
+                                </div>
                                 {talents.map((talent, index) => (
                                     <div key={talent.id}>
                                         <label>
@@ -212,11 +275,18 @@ function Modal({ setOpenModal }) {
                                                 onChange={(e) => handleTalentChange(talent.id, e)}
                                             />
                                         </label>
-                                        <button onClick={() => removeTalent(talent.id)}>Remove</button>
+                                        <div>
+                                            <button onClick={addTalent}>Add More Talents</button>
+                                            <button onClick={() => removeTalent(talent.id)}>Remove</button>
+                                        </div>
+                                        
                                     </div>
                                     ))}
-                                    <button onClick={addTalent}>Add More Talents</button>
-                                    <button type="submit">Next</button>
+                                    <br></br>
+                                    <div>
+                                        <button type="submit">Next</button>
+                                    </div>
+                                    
                             </div>                            
                         )}
 
