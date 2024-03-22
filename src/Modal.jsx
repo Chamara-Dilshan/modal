@@ -70,7 +70,7 @@ function Modal({ setOpenModal }) {
             <form onSubmit={handleSubmit}>
                 {step === 1 && (
                     <div>
-                        <p>1. Did you receive Jesus Christ to be your Lord and Savior?</p>
+                        <p>Did you receive Jesus Christ to be your Lord and Savior?</p>
                         <label>
                             <input
                                 type="radio"
@@ -100,7 +100,7 @@ function Modal({ setOpenModal }) {
 
                 {step === 2 && !receivedChrist && (
                     <div>
-                        <p>2. Are you willing today to give your life to Jesus Christ? </p>
+                        <p>Are you willing today to give your life to Jesus Christ? </p>
                         <label>
                             <input
                                 type="radio"
@@ -150,7 +150,7 @@ function Modal({ setOpenModal }) {
 
                 {step === 2 && receivedChrist && (
                     <div>
-                        <p>2. Did you get baptized by immersion?</p>
+                        <p>Did you get baptized by immersion?</p>
                         <label>
                             <input
                                 type="radio"
@@ -192,7 +192,7 @@ function Modal({ setOpenModal }) {
 
                 {step === 3 && !baptizedByImmersion && (
                     <div>
-                        <p>3. Are you willing today to be baptized?</p>
+                        <p>Are you willing today to be baptized?</p>
                         <label>
                             <input
                                 type="radio"
@@ -228,7 +228,7 @@ function Modal({ setOpenModal }) {
                 {/* {(step === 4 && baptismCertificate)||step === 4 && (*/}
                 {step === 4 && (
                     <div>
-                        <p>3. Do you know your talents and/or spiritual gifts?</p>
+                        <p>Do you know your talents and/or spiritual gifts?</p>
                         <label>
                             <input
                                 type="radio" 
