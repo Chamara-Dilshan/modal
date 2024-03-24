@@ -71,60 +71,77 @@ function Modal({ setOpenModal }) {
                     {step === 1 && (
                         <div>
                             <p>Did you receive Jesus Christ to be your Lord and Savior?</p>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="receivedChrist"
-                                    value="yes"
-                                    onChange={() => {
-                                        setReceivedChrist(true);
-                                        setStep(step + 1);
-                                    }}
-                                />
-                            Yes
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="receivedChrist"
-                                    value="no"
-                                    onChange={() => {
-                                        setReceivedChrist(false);
-                                        setStep(step + 1);
-                                    }}
-                                />
-                            No
-                            </label>
+                            <div style={{display:"flex"}}>
+                                <div style={{ marginRight: '60px' }}>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="receivedChrist"
+                                            value="yes"
+                                            onChange={() => {
+                                                setReceivedChrist(true);
+                                                setStep(step + 1);
+                                            }}
+                                            style={{marginRight: '5px' }}
+
+                                        />
+                                    Yes
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="receivedChrist"
+                                            value="no"
+                                            onChange={() => {
+                                                setReceivedChrist(false);
+                                                setStep(step + 1);
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                    No
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     )}
 
                     {step === 2 && !receivedChrist && (
                         <div>
                             <p>Are you willing today to give your life to Jesus Christ? </p>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="lifeToJesusChrist"
-                                    value="yes"
-                                    checked={lifeToJesusChrist === 'yes'}
-                                    onChange={() => {
-                                        setLifeToJesusChrist('yes');
-                                    }}
-                                />
-                                Yes
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="lifeToJesusChrist"
-                                    value="no"
-                                    checked={lifeToJesusChrist === 'no'}
-                                    onChange={() => { 
-                                        setLifeToJesusChrist('no');
-                                    }}
-                                />
-                                No
-                            </label>
+                            <div style={{display:"flex"}}>
+                                <div style={{ marginRight: '60px' }}>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="lifeToJesusChrist"
+                                            value="yes"
+                                            checked={lifeToJesusChrist === 'yes'}
+                                            onChange={() => {
+                                                setLifeToJesusChrist('yes');
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                        Yes
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="lifeToJesusChrist"
+                                            value="no"
+                                            checked={lifeToJesusChrist === 'no'}
+                                            onChange={() => { 
+                                                setLifeToJesusChrist('no');
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                        No
+                                    </label>
+                                </div>
+                            </div>
 
                             { lifeToJesusChrist === 'yes' && (
                                 <div>
@@ -151,29 +168,37 @@ function Modal({ setOpenModal }) {
                     {step === 2 && receivedChrist && (
                         <div>
                             <p>Did you get baptized by immersion?</p>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="baptizedByImmersion"
-                                    value="yes"
-                                    onChange={() => {
-                                        setBaptizedByImmersion(true);
-                                    }}
-                                />
-                            Yes
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="baptizedByImmersion"
-                                    value="no"
-                                    onChange={() => {
-                                        setBaptizedByImmersion(false);
-                                        setStep(step + 1);
-                                    }}
-                                />
-                            No
-                            </label>
+                            <div style={{display:"flex"}}>
+                                <div style={{ marginRight: '60px' }}>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="baptizedByImmersion"
+                                            value="yes"
+                                            onChange={() => {
+                                                setBaptizedByImmersion(true);
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                    Yes
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="baptizedByImmersion"
+                                            value="no"
+                                            onChange={() => {
+                                                setBaptizedByImmersion(false);
+                                                setStep(step + 1);
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                    No
+                                    </label>
+                                </div>
+                            </div>
 
                             { baptizedByImmersion && (
                                 <div>
@@ -193,28 +218,36 @@ function Modal({ setOpenModal }) {
                     {step === 3 && !baptizedByImmersion && (
                         <div>
                             <p>Are you willing today to be baptized?</p>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="willingToBeBaptized"
-                                    value="yes"
-                                    onChange={() => {
-                                        setWillingToBeBaptized(true);
-                                    }}
-                                />
-                                Yes
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="willingToBeBaptized"
-                                    value="no"
-                                    onChange={() => {
-                                        setStep(step + 1);
-                                    }}
-                                />
-                                No
-                            </label>
+                            <div style={{display:"flex"}}>
+                                <div style={{ marginRight: '60px' }}>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="willingToBeBaptized"
+                                            value="yes"
+                                            onChange={() => {
+                                                setWillingToBeBaptized(true);
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                        Yes
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="willingToBeBaptized"
+                                            value="no"
+                                            onChange={() => {
+                                                setStep(step + 1);
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                        No
+                                    </label>
+                                </div>
+                            </div>
 
                             { willingToBeBaptized && (
                                 <div>
@@ -229,35 +262,40 @@ function Modal({ setOpenModal }) {
                     {step === 4 && (
                         <div>
                             <p>Do you know your talents and/or spiritual gifts?</p>
-                            <label>
-                                <input
-                                    type="radio" 
-                                    name="knowsTalents"
-                                    value="yes"
-                                    checked={knowsTalents === 'yes'}
-                                    onChange={() => {
-                                        setKnowsTalents('yes');
-                                        setTalents([{ id: 1, value: '' }]);
-
-
-                                    }}
-                                />
-                            Yes
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="knowsTalents"
-                                    value="no"
-                                    checked={knowsTalents === 'no'}
-                                    onChange={() => {
-                                        setKnowsTalents('no');
-                                        setTalents([]);
-
-                                    }}
-                                />
-                            No
-                            </label>
+                            <div style={{display:"flex"}}>
+                                <div style={{ marginRight: '40px' }}>
+                                    <label>
+                                        <input
+                                            type="radio" 
+                                            name="knowsTalents"
+                                            value="yes"
+                                            checked={knowsTalents === 'yes'}
+                                            onChange={() => {
+                                                setKnowsTalents('yes');
+                                                setTalents([{ id: 1, value: '' }]);
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                    Yes
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="knowsTalents"
+                                            value="no"
+                                            checked={knowsTalents === 'no'}
+                                            onChange={() => {
+                                                setKnowsTalents('no');
+                                                setTalents([]);
+                                            }}
+                                            style={{marginRight: '5px' }}
+                                        />
+                                    No
+                                    </label>
+                                </div>
+                            </div>
 
                             { knowsTalents === 'yes'  && (
                                 <div>
