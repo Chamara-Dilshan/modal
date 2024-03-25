@@ -30,6 +30,7 @@ function Modal({ setOpenModal }) {
       
     function removeTalent(id) {
         setTalents(talents.filter(talent => talent.id !== id));
+ 
     }
 
   
@@ -305,26 +306,46 @@ function Modal({ setOpenModal }) {
                                         </p>
                                     </div>
                                     {talents.map((talent, index) => (
-                                        <div key={talent.id}>
-                                            <label>
-                                            Talent {index + 1}:
-                                                <textarea
+                                        <div key={talent.id} style={{display:"flex"}}>
+                                            <div>
+                                                <label>
+                                                    {index + 1}.
+                                                </label>
+                                                {/* <textarea
                                                     value={talent.value}
                                                     onChange={(e) => handleTalentChange(talent.id, e)}
-                                                />
-                                            </label>
-                                            <div>
-                                                <button onClick={addTalent}>Add More Talents</button>
-                                                <button onClick={() => removeTalent(talent.id)}>Remove</button>
+                                                />  */}
+                                                <input 
+                                                    type='text' 
+                                                    placeholder='       Enter Your talent' 
+                                                    value={talent.value}
+                                                    onChange={(e) => handleTalentChange(talent.id, e)}
+                                                    style={{
+                                                        borderRadius: '20px',   
+                                                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+                                                        backgroundColor: '#F5F5F5',    
+                                                        height: '25px',
+                                                        border: 'none', 
+                                                        marginLeft: '10px',
+                                                        marginBottom: '10px'
+                                                                                                           
+                                                    }} 
+                                                />                                             
                                             </div>
-                                            
+                                            <div style={{display:"flex"}}>
+                                                <div style={{ marginRight: '10px', marginLeft:'50px' }}>
+                                                    <button onClick={addTalent}>+</button>
+                                                </div>
+                                                <div >
+                                                    <button onClick={() => removeTalent(talent.id)}>-</button>
+                                                </div>
+                                            </div>                                            
                                         </div>
-                                        ))}
-                                        <br></br>
-                                        <div>
-                                            <button type="submit">Next</button>
-                                        </div>
-                                        
+                                    ))}
+                                    <br></br>
+                                    <div>
+                                        <button type="submit">Next</button>
+                                    </div>                                        
                                 </div>                            
                             )}
 
